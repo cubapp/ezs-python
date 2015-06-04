@@ -6,7 +6,7 @@ import time
 BT=300  #BounceTime pro detekci hrany v milisekundach
 GPIO.setmode(GPIO.BOARD)
 # definice PINu
-# the pins we are going to use
+# the pins we are going to use (BOARD)
 #pinid1 = 21
 #pinid2 = 23
 #pinid3 = 7
