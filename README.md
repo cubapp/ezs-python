@@ -1,2 +1,2 @@
 # ezs-python
-ezs rewrite. 
+ezs rewrite from perl to python. As simple as possible. 
