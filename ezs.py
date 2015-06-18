@@ -4,7 +4,8 @@ import time
 
 # Definice: 
 BT=300  #BounceTime pro detekci hrany v milisekundach
-GPIO.setmode(GPIO.BOARD)
+#GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM) # BACHANATO
 # definice PINu
 # the pins we are going to use (BOARD)
 #pinid1 = 21
@@ -23,12 +24,13 @@ def tlacitko(cislo):
         #print("Tlacitko cislo: "), cislo, time.ctime(), ",", time.time(), "," ,users[cislo]
         print time.ctime(), ",", time.time(), "," ,users[cislo]
 
-GPIO.cleanup()
 
 # Hlavni program 
 # nastaveni PINu        
-for i in piny
+for i in piny:
+    # Set Up All PINs to pull down
     GPIO.setup(i, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+    # Add handler to all detected switches
     GPIO.add_event_detect(i, GPIO.RISING, callback=tlacitko, bouncetime=BT)
 
 # smycka 
