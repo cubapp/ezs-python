@@ -5,7 +5,7 @@ import time
 try:
   # Definitions: 
   LOGFILE="/opt/ezs/log/ezs.log"
-  BT=400  #BounceTime for edge detection in milisecs 
+  BT=200  #BounceTime for edge detection in milisecs 
   GPIO.setmode(GPIO.BOARD)
   # the pins we are going to use (BOARD) - switchpins and relay
   switchpins  = [ 21, 23, 7, 11, 13, 15 ]
@@ -29,7 +29,7 @@ try:
          logline = '%s,%d,%s' % (time.ctime(),int(time.time()),users[innumber])
          print logline
          logaccess(logline)
-         #driverelay(BT/100)  #approx 3sec
+         driverelay(BT/100)  #approx 3sec
  
   # Relay driver function 
   def driverelay(sleeptime):
@@ -57,10 +57,8 @@ try:
   # 2. Switch PINs - for all switchpins setu up as INUPT and register event_detect
   for i in switchpins:
       # Set Up All PINs to pull down
-      #GPIO.setup(i, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
       GPIO.setup(i, GPIO.IN, pull_up_down = GPIO.PUD_UP)
       # Add handler to all detected switches
-      #GPIO.add_event_detect(i, GPIO.RISING, callback=switchpress, bouncetime=BT)
       GPIO.add_event_detect(i, GPIO.FALLING, callback=switchpress, bouncetime=BT)
   # END of setting PINs
   # 
