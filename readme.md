@@ -1,6 +1,8 @@
-# CSV to ODS Converter
+# ezs-python and CSV to ODS Converter for EZS
 
-A Python command-line utility to convert CSV files into LibreOffice Calc (`.ods`) spreadsheets while preserving formulas.
+EZS rewrite from perl to python. As simple as possible. 
+
+Plus a Python command-line utility to convert CSV files into LibreOffice Calc (`.ods`) spreadsheets while preserving formulas.
 
 ## Prerequisites & Virtual Environment (`uv`)
 
